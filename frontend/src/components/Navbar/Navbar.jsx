@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import './Navbar.css';
 import {Link} from 'react-router-dom';
 import {assets} from '../../assets/assets';
 import { useState } from 'react';
-function Navbar() {
+function Navbar({setShowLogin}) {
   const [menu,setMenu] = useState("home");
   return (
     <div className='navbar'>
@@ -19,7 +20,7 @@ function Navbar() {
           <img src={assets.basket_icon} alt="" />
           <div className="dot"></div>
         </div>
-        <button>sign in</button>
+        <button onClick={() => setShowLogin(true)}>sign in</button>
       </div>
     </div>
   );
