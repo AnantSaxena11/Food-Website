@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext } from 'react';
 import { StoreContext } from '../../Context/StoreContext'
 import './Cart.css';
