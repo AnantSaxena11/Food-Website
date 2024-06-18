@@ -12,7 +12,6 @@ function Navbar({ setShowLogin }) {
     localStorage.removeItem("token");
     setToken("");
     navigate('/');
-
   }
   return (
     <div className='navbar'>
