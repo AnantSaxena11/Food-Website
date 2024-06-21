@@ -1,11 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // import React from 'react'
+import './Verify.css'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import './Verify.css'
 import { useContext, useEffect } from 'react';
 import { StoreContext } from '../../Context/StoreContext';
 import axios from 'axios';
 const Verify = () => {
+    // eslint-disable-next-line no-unused-vars
     const [searchParams, setSearchParams] = useSearchParams();
     const success = searchParams.get("success");
     const orderId = searchParams.get("orderId");
@@ -15,12 +17,10 @@ const Verify = () => {
         const response = await axios.post(url+"/api/order/verify",{success,orderId});
         if(response.data.success)
         {
-            alert(response.data.message);
             navigate("/myorders");
         }
         else
         {
-            alert("Payment Failed");
             navigate("/");
         }
     }
