@@ -1,5 +1,7 @@
-import { useContext, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../../Context/StoreContext'
+import { useNavigate } from 'react-router-dom';
 import './PlaceOrder.css';
 import axios from 'axios';
 const PlaceOrder = () => {
@@ -47,6 +49,15 @@ const PlaceOrder = () => {
       alert("Error")
     }
   }
+  const navigate = useNavigate();
+  useEffect(() =>{
+    if(!token){
+      navigate('/cart')
+    }
+    else if(getTotalCartAmount() === 0){
+      navigate('/cart')
+    }
+  },[token])
   return (
     <form onSubmit={placeOrder} className="place-order">
       <div className="place-order-left">
